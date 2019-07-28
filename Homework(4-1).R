@@ -5,7 +5,7 @@
 library("readr")
 
 #----------------------------------------------------------------------
-----------------------------------------------------------------------
+# ----------------------------------------------------------------------
 # (A) Import this to R
 diet_data <- read_tsv('DietWeigthLoss.txt')
 
@@ -14,7 +14,7 @@ diet_data$Diet = as.factor(diet_data$Diet)
 
 
 #----------------------------------------------------------------------
-----------------------------------------------------------------------
+# ----------------------------------------------------------------------
 # (B) Determine
 # (B-1) How many participants participated in each diet
 num_A = nrow(diet_data[diet_data$Diet=='A', ])
@@ -52,7 +52,7 @@ mean_D = round(mean(as.numeric(unlist(diet_data[diet_data$Diet=='D',
 
 
 #----------------------------------------------------------------------
-----------------------------------------------------------------------
+#----------------------------------------------------------------------
 # (C) Create a graph representing all group averages and the total mean
 # Let's first conduct one way ANOVA for this data
 anova1 = aov(diet_data$WeightLoss ~ diet_data$Diet)
@@ -64,7 +64,7 @@ abline(h=overall_Y, col='red')
 
 
 #----------------------------------------------------------------------
-----------------------------------------------------------------------
+#----------------------------------------------------------------------
 # (D) Does the diet have an effect on the assumed weight? To do this, 
 # create a model in R that describes the dependencies. In addition to task (c), 
 # create another graph representing this dependency.
@@ -74,7 +74,7 @@ plot(diet.regression)
 
 
 #----------------------------------------------------------------------
-----------------------------------------------------------------------
+#----------------------------------------------------------------------
 # (E) Check the above question with a suitable statistical test.
 # For this, formulate the hypotheses and prerequisites of the test. 
 # Check this. Evaluate the test results. 
@@ -107,7 +107,7 @@ F_STAT = round(variance_SSbetween / variance_SSwithin, 2)
 
 
 #----------------------------------------------------------------------
-----------------------------------------------------------------------
+# ----------------------------------------------------------------------
 # (F) Create a plot that offsets the predicted values of the model against the residuals
 
 # I assume this means I have to plot residuals?
